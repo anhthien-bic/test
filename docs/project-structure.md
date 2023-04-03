@@ -7,7 +7,11 @@ contains the static files such as images, fonts, i18n, etc.
 
 > `src` folder:
 
-`components`: shared components used across the entire application, naming Next's layouts with prefix `Layout`
+`api`: base api used across the entire application
+
+`components`: shared components used across the entire application
+
+`layouts`: Next's layout components
 
 `config`: all the global configuration, constants env variables,...
 
@@ -34,13 +38,13 @@ contains the static files such as images, fonts, i18n, etc.
 > `features` folder allow you to keep functionalities scoped to a feature and not mix its declarations with shared things. For example, `features/auth` could contains:
 
 
-`api`: exported API request declarations and api hooks related to a specific feature
+`api`: extends the base api, scoped to a specific feature
 
 `components`: components scoped to a specific feature
 
 `hooks`: hooks scoped to a specific feature
 
-`routes`: route components for a specific feature pages
+`pages`: page components for a specific feature pages
 
 `stores`: state stores for a specific feature
 
