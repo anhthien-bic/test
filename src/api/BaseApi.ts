@@ -41,7 +41,7 @@ const handleErrorResponse = async (error: AxiosError) => {
 
 export interface ApiConfig {
     baseURL?: string
-    url: string
+    url?: string
     headers?: any
     withCredentials?: boolean
     timeout?: number
@@ -61,6 +61,7 @@ export default class BaseApi {
     api: AxiosInstance
 
     url: string
+    baseURL:string
 
     headers?: any
 
@@ -72,7 +73,8 @@ export default class BaseApi {
         setResponse,
         withCredentials,
     }: ApiConfig) {
-        this.url = url
+        this.baseURL = baseURL || ""
+        this.url = url || ""
 
         this.headers = { ...headers, ...createHeadersJSON() }
         this.api = axios.create({
