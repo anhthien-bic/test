@@ -11,16 +11,13 @@ import {
   discoverResponseSchema,
   DiscoverGroupParams,
 } from "../types";
-import { getEndPointAdminPanel } from "../utils";
 import { CommunityId, UserId } from "@/types";
 
 class CommunityApi extends GroupBaseApi {
-  endPointAdminPanel: string;
   constructor() {
     super({
       baseURL: "communities/",
     });
-    this.endPointAdminPanel = getEndPointAdminPanel();
   }
 
   async getCommunities({ discover, ...params }: GetCommunitiesParams) {
