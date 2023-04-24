@@ -9,6 +9,7 @@ import {
   MembershipQuestion,
   ListDefaultParams,
   UpdateJoinSettingsParams,
+  joiningRequestsResponseSchema,
 } from "../types";
 import { getEndPointAdminPanel, isAdminPanelPage } from "../utils";
 import { API_SUCCESS_CODE, HTTP_CLIENT_DEFAULT_PARAM_LIMIT } from "@/config";
@@ -55,6 +56,7 @@ class GroupApi extends GroupBaseApi {
     return this.doGet({
       url: `${groupId}/join-requests`,
       params,
+        validator: joiningRequestsResponseSchema.passthrough().parseAsync,
     });
   }
 

@@ -7,6 +7,7 @@ import {
 } from "@/types";
 import { ListDefaultParams } from "./common";
 import { z } from "zod";
+import { userSchema } from "@/features/user";
 
 export type JoiningRequestsSort =
   | "created_at:desc"
@@ -330,3 +331,26 @@ export interface DiscoverGroupParams extends ListDefaultParams {
   discover?: boolean;
   id?: string;
 }
+
+export const userJoiningMemberScheme = z.object({
+  id: z.string(),
+  user_id: z.string(),
+  group_id: z.string().optional(),
+  created_at: z.string().optional(),
+  user: userSchema,
+  community_id: z.string().optional(),
+  updated_at: z.string().optional(),
+  status: z.string().optional(),
+  is_verified: z.boolean().optional(),
+})
+
+export type UserJoiningMember = z.infer<typeof userJoiningMemberScheme>
+
+export const joiningRequestsResponseSchema =
+    z.object({
+        data: z.array(userJoiningMemberScheme),
+        meta: z.object({
+            has_next_page: z.boolean(),
+            total: z.number(),
+        }),
+    })
