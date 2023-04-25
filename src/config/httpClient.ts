@@ -12,3 +12,5 @@ export const HTTP_CLIENT_ERROR_MISSING_CONFIGURE_AUTH =
 export const HTTP_ERROR_CODE_UNAUTHORIZED = 401
 
 export const EVENT_KICK_OUT = 'EVENT_KICK_OUT'
+export const HTTP_ERROR_CODE_MAINTENANCE = 'api.is_under_maintenance'
+
